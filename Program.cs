@@ -24,3 +24,38 @@ string PrintArray(string[] newArray)
     return stringArray;
 }
 
+int CountStringSymbols(string[] newArray)
+{
+    int counter = 0;
+    foreach (string item in newArray)
+    {
+        if (item.Length <= 3)
+        {
+            counter++;
+        }
+    }
+    return counter;
+}
+
+string[] CreateNewArray(string[] newArray)
+{
+    int resultArrayLength = CountStringSymbols(newArray);
+    string[] resultArray = new string[resultArrayLength];
+    int i = 0;
+    foreach (string item in newArray)
+    {
+        if (item.Length <= 3)
+        {
+            resultArray[i] = item;
+            i++;
+        }
+    }
+    return resultArray;
+}
+
+
+string[] newArray = FillArray();
+string[] resultArray = CreateNewArray(newArray);
+string firstArray = PrintArray(newArray);
+string secondArray = PrintArray(resultArray);
+Console.WriteLine(firstArray + " -> " + secondArray);
